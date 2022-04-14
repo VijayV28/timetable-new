@@ -1,0 +1,114 @@
+html, body {
+	height: 100%;
+}
+
+
+
+header > button {
+    float: right;
+    width: var(--space-4);
+    height: var(--space-4);
+    margin-top: calc((var(--space-6) - var(--space-4)) / 2);
+    font-size: var(--space-0);
+    padding: 0;
+    margin-left: var(--space--3);
+	cursor: pointer;
+}
+
+
+
+#timetable {
+	display: flex;
+	padding: var(--space--1);
+	padding-right: 0;
+	user-select: none;
+	max-width: 100%;
+	overflow-x: auto;
+	max-height: calc(100% - var(--space-5) - var(--space-0));
+	box-sizing: border-box;
+}
+
+#timetable > * + * {
+	margin-left: var(--space--1);
+}
+
+
+
+#periods_container > .period {
+	margin-top: calc(var(--space--1) + var(--space-3));
+	width: var(--space-6);
+}
+
+
+
+.day_container {
+	flex-grow: 1;
+	flex-basis: 100px;
+}
+
+.day_container:last-of-type {
+    padding-right: var(--space--1);
+}
+
+.day_container > .day_label {
+	font-size: var(--space--1);
+	color: var(--color-foreground-2);
+	text-transform: uppercase;
+	line-height: var(--space-3);
+}
+
+.day_container > .subject_container {
+	height: var(--space-5);
+	padding: 0 var(--space-0) 0 var(--space-0);
+	box-sizing: border-box;
+	font-size: var(--space-0);
+	transition: opacity 0.15s, transform 0.15s;
+	border-radius: 5px;
+	background-color: var(--color-background-2);
+
+	display: flex;
+	align-items: center;
+}
+
+.day_container > * + .subject_container, #periods_container > * + .period {
+	margin-top: var(--space--1);
+}
+
+.day_container > .subject_container > span:nth-of-type(1) {
+	flex-grow: 1;
+	padding-right: 1ch;
+}
+
+.day_container > .subject_container > span:nth-of-type(2) {
+	font-size: var(--space--1);
+}
+
+.day_container > .subject_container.empty {
+	background-color: rgba(0,0,0,0);
+	color: var(--color-foreground-2);
+	border: 3px dashed;
+	text-align: center;
+	font-size: var(--space-1);
+}
+
+@media print {
+    body {
+        background-color: #FFFFFF !important;
+    }
+
+	header {
+		box-shadow: none !important;
+	}
+
+	header > button {
+		display: none;
+	}
+
+	#timetable {
+		padding-top: 0;
+	}
+
+    .subject_container {
+        border: 2px solid;
+    }
+}

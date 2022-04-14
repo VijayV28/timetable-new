@@ -1,0 +1,22 @@
+{
+    "name": "Timetable",
+    "short_name": "Timetable",
+    "icons": [
+        {
+            "src": "icon_512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon_128.png",
+            "type": "image/png",
+            "sizes": "128x128",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "./",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#EEE"
+}

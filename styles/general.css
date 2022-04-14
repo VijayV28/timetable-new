@@ -1,0 +1,210 @@
+:root {
+	--ratio: 1.27;
+	--space-6: calc(var(--space-5) * var(--ratio));
+	--space-5: calc(var(--space-4) * var(--ratio));
+	--space-4: calc(var(--space-3) * var(--ratio));
+	--space-3: calc(var(--space-2) * var(--ratio));
+	--space-2: calc(var(--space-1) * var(--ratio));
+	--space-1: calc(var(--space-0) * var(--ratio));
+	--space-0: 1rem;
+	--space--1: calc(var(--space-0) / var(--ratio));
+	--space--2: calc(var(--space--1) / var(--ratio));
+	--space--3: calc(var(--space--2) / var(--ratio));
+	--space--4: calc(var(--space--3) / var(--ratio));
+
+	--color-background-1: #EEE;
+	--color-background-2: #FFF;
+	--color-background-3: #EEE;
+	--color-foreground-1: #164e63;
+	--color-foreground-2: #AAA;
+	--color-foreground-3: #999;
+	--color-positive: #0BF;
+	--color-negative: #F53;
+
+} 
+
+
+body.dark_mode {
+	--color-background-1: #000;
+	--color-background-2: #222;
+	--color-background-3: #444;
+	--color-foreground-1: #FFF;
+	--color-foreground-2: #AAA;
+	--color-foreground-3: #999;
+	--color-positive: #0BF;
+	--color-negative: #F53;
+}
+
+
+@font-face {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	src: url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+}
+@font-face {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	src: url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+}
+
+
+
+
+html {
+    height: 100%;
+}
+
+body {
+	height: 100%;
+	line-height: 1.27;
+	font-size: var(--space-0);
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+	color: var(--color-foreground-1);
+	background-color: var(--color-background-1);
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+
+
+header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	z-index: 5;
+	background-color: var(--color-background-2);
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	padding: 0 var(--space-0);
+}
+
+header > .back_button {
+    float: left;
+    width: var(--space-4);
+    height: var(--space-4);
+    margin-top: calc((var(--space-6) - var(--space-4)) / 2);
+    margin-right: var(--space-0);
+    font-size: var(--space-0);
+    padding: 0;
+}
+
+header + * {
+	max-width: 700px;
+	margin: auto;
+}
+
+
+
+
+
+h1 {
+	font-size: var(--space-2);
+	line-height: var(--space-6);
+	margin: 0;
+	display: inline-block;
+}
+h2 {
+	font-size: var(--space-1);
+	margin: 0;
+}
+
+
+
+
+
+input, button, select {
+    font-size: var(--space--1);
+    font-family: "Montserrat", sans-serif;
+    height: var(--space-3);
+    border:0;
+	padding: 0 var(--space--1);
+	border-radius: 5px;
+	color: var(--color-foreground-1);
+	cursor: pointer;
+}
+input, select {
+	background: var(--color-background-3);
+}
+
+button {
+	background-color: var(--color-background-2);
+	text-transform: uppercase;
+	font-weight: 600;
+	transition:background 0.2s, border 0.4s;
+	outline: none;
+}
+button.positive {
+	color: var(--color-positive);
+}
+button.negative {
+	color: var(--color-negative);
+}
+button:active {
+	background-color: var(--color-background-3);
+}
+button:disabled {
+	opacity: 0.5;
+}
+
+
+
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 20;
+	animation: fade_in 0.2s;
+	transition: opacity 0.2s;
+}
+
+@keyframes fade_in {
+	from {
+		opacity: 0;
+	}
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--color-background-2);
+	border-radius: 5px;
+	padding: var(--space-0) var(--space-0);
+	box-sizing: border-box;
+	width: 90%;
+	max-width: 500px;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+	z-index: 25;
+	animation: fade_fly_in 0.2s;
+	transition: opacity 0.2s;
+	max-height: calc(100% - 2 * var(--space-0));
+	overflow-y: auto;
+}
+
+@keyframes fade_fly_in {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -20%);
+	}
+}
+
+
+@media screen and (max-width: 300px) {
+	:root {
+		--space-0: 0.75rem;
+	}
+}
+
+@media screen and (min-width: 500px) and (min-height: 500px) {
+	:root {
+		--space-0: 1.2rem;
+	}
+}

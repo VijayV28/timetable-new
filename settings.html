@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Timetable</title>
+		<link rel="stylesheet" type="text/css" href="styles/general.css"/>
+		<link rel="stylesheet" type="text/css" href="styles/settings.css"/>
+		<link rel="stylesheet" type="text/css" href="styles/fontello/css/fontello.css"/>
+		<script src="scripts/configuration.js"></script>
+		<script src="scripts/translator.js"></script>
+		<script src="scripts/page_transitions.js"></script>
+		<script src="scripts/general.js"></script>
+
+
+		<link rel="manifest" href="manifest.json"/>
+		<meta name="theme-color" content="#FFFFFF"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Stundenplan">
+		<link rel="apple-touch-icon" href="icon_128.png">
+		<link rel="icon" href="icon_128.png">
+	</head>
+
+
+
+	<body>
+		<header>
+			<button class="back_button icon-back" onclick="transition_back();"></button>
+			<h1 data-translator-key="settings"></h1>
+		</header>
+
+		<div id="settings_container">
+			<div class="settings_group">
+				<a onclick="transition_to_page('application_settings.html');" data-translator-key="application" class="icon-settings">
+					General
+				</a>
+
+				<a onclick="transition_to_page('color_settings.html');" data-translator-key="manage_colors" class="icon-colors">
+					Manage colors
+				</a>
+
+				<a onclick="transition_to_page('week_view.html?print');" data-translator-key="print" class="icon-print">
+					Print
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
